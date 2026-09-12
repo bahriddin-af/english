@@ -1,0 +1,1028 @@
+<title>Ovoz Chiqarib</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
+
+<style>
+:root{
+  --paper:#F2EFEA;
+  --card:#FBFAF8;
+  --card-2:#EAE6DF;
+  --ink:#221F1C;
+  --ink-2:#4A443E;
+  --muted:#837A70;
+  --line:#DCD6CD;
+  --line-2:#C9C1B5;
+  --accent:#14605C;
+  --accent-soft:#DCE9E7;
+  --accent-ink:#0C403D;
+  --on-accent:#FBFAF8;
+  --rec:#C0392B;
+  --rec-soft:#F6E2DF;
+  --ok:#3F7A52;
+  --ok-soft:#E0EDE3;
+  --warn:#9A6B14;
+  --shadow:0 1px 2px rgba(34,31,28,.06), 0 8px 24px -16px rgba(34,31,28,.30);
+  --radius:10px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#16191A;
+    --card:#1E2223;
+    --card-2:#272C2D;
+    --ink:#EDE9E3;
+    --ink-2:#C3BDB5;
+    --muted:#8C877F;
+    --line:#313738;
+    --line-2:#414849;
+    --accent:#5FBDB2;
+    --accent-soft:#1C3A38;
+    --accent-ink:#A9DED6;
+    --on-accent:#10201F;
+    --rec:#E4746A;
+    --rec-soft:#3A2321;
+    --ok:#79B48C;
+    --ok-soft:#20302A;
+    --warn:#D6A94E;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#16191A;
+  --card:#1E2223;
+  --card-2:#272C2D;
+  --ink:#EDE9E3;
+  --ink-2:#C3BDB5;
+  --muted:#8C877F;
+  --line:#313738;
+  --line-2:#414849;
+  --accent:#5FBDB2;
+  --accent-soft:#1C3A38;
+  --accent-ink:#A9DED6;
+  --on-accent:#10201F;
+  --rec:#E4746A;
+  --rec-soft:#3A2321;
+  --ok:#79B48C;
+  --ok-soft:#20302A;
+  --warn:#D6A94E;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Public Sans","Segoe UI",system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:28px 20px 80px;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:600;text-wrap:balance;margin:0;line-height:1.2}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+input,textarea,select{font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line-2);border-radius:8px;padding:9px 11px;width:100%}
+textarea{resize:vertical;line-height:1.7}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+
+/* ---- header ---- */
+.top{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between}
+.brand h1{font-size:clamp(26px,4vw,34px);letter-spacing:-.01em}
+.brand p{margin:4px 0 0;color:var(--muted);font-size:14px;max-width:46ch}
+.top-actions{display:flex;gap:8px;align-items:center}
+.ghost{border:1px solid var(--line-2);border-radius:999px;padding:6px 13px;font-size:13px;color:var(--ink-2);background:var(--card)}
+.ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---- phase rail ---- */
+.rail{padding:18px 20px;display:flex;flex-direction:column;gap:12px}
+.rail-head{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:baseline}
+.rail-head strong{font-family:"Fraunces",Georgia,serif;font-size:19px;font-weight:600}
+.rail-track{display:grid;grid-template-columns:8fr 18fr 26fr 26fr;gap:3px}
+.seg{height:9px;border-radius:3px;background:var(--card-2);position:relative;overflow:hidden}
+.seg span{position:absolute;inset:0;width:0;background:var(--accent);transition:width .5s ease}
+.seg.done span{width:100%}
+.rail-labels{display:grid;grid-template-columns:8fr 18fr 26fr 26fr;gap:3px;font-size:11px;color:var(--muted)}
+.rail-labels div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rail-labels .now{color:var(--accent);font-weight:600}
+.stats{display:flex;flex-wrap:wrap;gap:22px;padding-top:4px}
+.stat{display:flex;flex-direction:column}
+.stat b{font-family:"JetBrains Mono",monospace;font-variant-numeric:tabular-nums;font-size:22px;font-weight:600;line-height:1.1}
+.stat small{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+
+/* ---- tabs ---- */
+.tabs{display:flex;gap:2px;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+.tab{padding:9px 14px;font-size:14px;font-weight:500;color:var(--muted);border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab:hover{color:var(--ink)}
+.tab[aria-selected="true"]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.panel[hidden]{display:none}
+.panel{display:flex;flex-direction:column;gap:18px}
+
+/* ---- today ---- */
+.today{overflow:hidden}
+.today-head{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:flex-start;padding:20px 22px;border-bottom:1px solid var(--line);background:var(--card-2)}
+.daynum{display:flex;align-items:baseline;gap:9px}
+.daynum b{font-family:"Fraunces",Georgia,serif;font-size:44px;font-weight:700;line-height:.9;letter-spacing:-.02em}
+.daynum span{font-size:13px;color:var(--muted)}
+.focus{max-width:52ch}
+.focus h2{font-size:20px;margin-bottom:2px}
+.focus p{margin:0;color:var(--ink-2);font-size:14px}
+.chip{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:999px;background:var(--accent-soft);color:var(--accent-ink)}
+.chip.rest{background:var(--card);color:var(--muted);border:1px solid var(--line-2)}
+
+.blocks{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0}
+.block{padding:18px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:11px}
+.block:last-child{border-right:none}
+.block h3{font-size:15px;display:flex;align-items:center;gap:8px}
+.block .time{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+.task{display:flex;gap:9px;align-items:flex-start;font-size:14px;color:var(--ink-2);line-height:1.5}
+.task input[type=checkbox]{width:16px;height:16px;margin:4px 0 0;flex:none;accent-color:var(--accent)}
+.task label{cursor:pointer}
+.task .en{font-family:"JetBrains Mono",monospace;font-size:12.5px;background:var(--card-2);padding:1px 5px;border-radius:4px}
+
+/* ---- monolog / timer ---- */
+.speak{padding:20px 22px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+.speak-l{display:flex;flex-direction:column;gap:5px;min-width:240px;flex:1}
+.speak-l h3{font-size:15px}
+.speak-l p{margin:0;font-size:14px;color:var(--ink-2)}
+.prompt{font-family:"Fraunces",Georgia,serif;font-size:19px;color:var(--ink);line-height:1.35}
+.timer-box{display:flex;align-items:center;gap:14px}
+.clock{font-family:"JetBrains Mono",monospace;font-size:38px;font-weight:600;font-variant-numeric:tabular-nums;letter-spacing:-.02em;min-width:118px;text-align:right}
+.clock.live{color:var(--rec)}
+.rec-btn{background:var(--rec);color:#fff;border-radius:999px;padding:11px 22px;font-weight:600;font-size:14px;display:flex;align-items:center;gap:9px;box-shadow:0 2px 10px -4px var(--rec)}
+.rec-btn:hover{filter:brightness(1.07)}
+.rec-btn .dot{width:9px;height:9px;border-radius:50%;background:#fff}
+.rec-btn.running .dot{animation:pulse 1.1s infinite}
+@keyframes pulse{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.runs{display:flex;gap:7px;align-items:center}
+.run{width:34px;height:34px;border-radius:50%;border:1.5px solid var(--line-2);display:grid;place-items:center;font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--muted)}
+.run.on{background:var(--ok-soft);border-color:var(--ok);color:var(--ok);font-weight:600}
+.runs-note{font-size:12px;color:var(--muted);max-width:16ch;line-height:1.35}
+
+.finish{padding:16px 22px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.btn{background:var(--accent);color:var(--on-accent);border-radius:8px;padding:10px 20px;font-weight:600;font-size:14px}
+.btn:hover{filter:brightness(1.08)}
+.btn[disabled]{opacity:.45;cursor:default;filter:none}
+.btn.done{background:var(--ok-soft);color:var(--ok);border:1px solid var(--ok)}
+.save-state{font-size:12.5px;color:var(--muted)}
+
+/* ---- generic list sections ---- */
+.sec{padding:20px 22px;display:flex;flex-direction:column;gap:14px}
+.sec-head{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:baseline}
+.sec-head h2{font-size:19px}
+.sec-head p{margin:2px 0 0;font-size:13.5px;color:var(--muted);max-width:60ch}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:640px){.row2{grid-template-columns:1fr}.block{border-right:none}}
+.list{display:flex;flex-direction:column;gap:0;margin:0;padding:0;list-style:none}
+.list li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-top:1px solid var(--line)}
+.list li .body{flex:1;min-width:0}
+.list li .date{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--muted);flex:none;padding-top:3px}
+.del{color:var(--muted);font-size:17px;line-height:1;padding:2px 6px;border-radius:6px;flex:none}
+.del:hover{color:var(--rec);background:var(--rec-soft)}
+.en-line{font-family:"JetBrains Mono",monospace;font-size:13.5px;line-height:1.5;word-break:break-word}
+.uz-line{font-size:13px;color:var(--muted);margin-top:2px}
+.wrong{color:var(--rec);text-decoration:line-through;text-decoration-thickness:1px}
+.right{color:var(--ok)}
+.empty{color:var(--muted);font-size:14px;font-style:italic;padding:14px 0;border-top:1px solid var(--line)}
+
+/* ---- story ---- */
+.story-meta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+.wc{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--muted)}
+.archive li{flex-direction:column;gap:6px;align-items:stretch}
+.archive .arc-head{display:flex;gap:10px;justify-content:space-between;align-items:baseline}
+.archive .arc-head b{font-family:"JetBrains Mono",monospace;font-size:12.5px;color:var(--accent);font-weight:600}
+.archive p{margin:0;font-size:14.5px;line-height:1.65;white-space:pre-wrap}
+
+/* ---- progress ---- */
+.grid-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.mini{padding:16px 18px;display:flex;flex-direction:column;gap:5px}
+.mini b{font-family:"JetBrains Mono",monospace;font-size:26px;font-weight:600;line-height:1}
+.mini small{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.mini em{font-style:normal;font-size:13px;color:var(--ink-2)}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}
+th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+td.n{font-family:"JetBrains Mono",monospace;font-variant-numeric:tabular-nums}
+.scroll-x{overflow-x:auto}
+.streak-grid{display:flex;flex-wrap:wrap;gap:4px}
+.sq{width:13px;height:13px;border-radius:3px;background:var(--card-2);border:1px solid var(--line)}
+.sq.on{background:var(--accent);border-color:var(--accent)}
+.sq.rest{background:transparent;border-style:dashed}
+
+/* ---- plan ---- */
+.phase{padding:18px 22px;border-top:1px solid var(--line)}
+.phase:first-child{border-top:none}
+.phase-head{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between;margin-bottom:10px}
+.phase-head h3{font-size:17px}
+.phase-head span{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--muted)}
+.weeks{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:7px}
+.wk{font-size:13px;padding:7px 10px;border:1px solid var(--line);border-radius:7px;display:flex;gap:8px;color:var(--ink-2);background:var(--card)}
+.wk b{font-family:"JetBrains Mono",monospace;font-size:11.5px;color:var(--muted);flex:none;padding-top:1px}
+.wk.past{opacity:.5}
+.wk.now{border-color:var(--accent);background:var(--accent-soft);color:var(--accent-ink)}
+.wk.now b{color:var(--accent-ink)}
+.rules{display:flex;flex-direction:column;gap:8px;counter-reset:r}
+.rule{display:flex;gap:11px;font-size:14px;color:var(--ink-2);line-height:1.55}
+.rule b{font-family:"JetBrains Mono",monospace;font-size:12px;color:var(--accent);flex:none;padding-top:3px}
+
+.setup{padding:22px;display:flex;flex-direction:column;gap:12px;max-width:520px}
+.foot{font-size:12.5px;color:var(--muted);text-align:center;line-height:1.7}
+</style>
+
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand">
+      <h1>Ovoz Chiqarib</h1>
+      <p>A2 dan B2 gacha — kunlik gapirish mashg'uloti. Ichida o'qish mashq hisoblanmaydi.</p>
+    </div>
+    <div class="top-actions">
+      <button class="ghost" id="themeBtn">Tema</button>
+      <button class="ghost" id="exportBtn">Nusxa olish</button>
+    </div>
+  </header>
+
+  <section class="card rail" id="rail"></section>
+
+  <nav class="tabs" role="tablist" id="tabs">
+    <button class="tab" role="tab" data-p="today" aria-selected="true">Bugun</button>
+    <button class="tab" role="tab" data-p="story" aria-selected="false">Hikoya</button>
+    <button class="tab" role="tab" data-p="words" aria-selected="false">So'zlar</button>
+    <button class="tab" role="tab" data-p="errors" aria-selected="false">Xatolar</button>
+    <button class="tab" role="tab" data-p="growth" aria-selected="false">O'sish</button>
+    <button class="tab" role="tab" data-p="plan" aria-selected="false">Reja</button>
+  </nav>
+
+  <div class="panel" id="p-today"></div>
+  <div class="panel" id="p-story" hidden></div>
+  <div class="panel" id="p-words" hidden></div>
+  <div class="panel" id="p-errors" hidden></div>
+  <div class="panel" id="p-growth" hidden></div>
+  <div class="panel" id="p-plan" hidden></div>
+
+  <p class="foot" id="foot"></p>
+</div>
+
+<script>
+(function(){
+"use strict";
+
+/* ============================================================
+   1. UZOQ MUDDATLI DASTUR — 78 hafta (~18 oy), keyin takrorlanadi
+   ============================================================ */
+
+var PHASES = [
+  {name:"Poydevor",      weeks:8,  level:"A2",      goal:"To'rtta zamon avtomatlashadi"},
+  {name:"Ravonlik",      weeks:18, level:"A2 → B1", goal:"Suhbatni o'zim olib boraman"},
+  {name:"Kengayish",     weeks:26, level:"B1 → B2", goal:"Abstrakt va ish mavzulari ochiladi"},
+  {name:"Nozik farqlar", weeks:26, level:"B2 → C1", goal:"Ohang, idioma, tabiiy tezlik"}
+];
+
+var WEEKS = [
+  // --- Poydevor (1-8) ---
+  ["to be — I am / you are","Har gapda to be to'g'ri ishlatiladi"],
+  ["Present Simple — kundalik rejim","Kunimni to'xtamasdan aytaman"],
+  ["Inkor: don't / doesn't","Nima qilmasligimni ayta olaman"],
+  ["Savol: do / does + WH","5 xil savol beraman"],
+  ["Present Continuous — hozir","Hozir nima bo'layotganini aytaman"],
+  ["Simple va Continuous farqi","Ikkisini adashtirmayman"],
+  ["Past Simple — regular fe'llar","Kechagi kunim haqida gapiraman"],
+  ["Past Simple — 40 noto'g'ri fe'l","go/went, see/saw o'ylamasdan chiqadi"],
+  // --- Ravonlik (9-26) ---
+  ["going to — rejalar","Ertangi kunimni aytaman"],
+  ["will — qaror va bashorat","Fikrimni o'sha zahoti bildiraman"],
+  ["can / can't / could","Imkoniyat va so'rovni ayta olaman"],
+  ["There is / there are + miqdor","Xonani, shaharni tasvirlayman"],
+  ["Uzaytirish: because, so, but","Har javob 2-3 gapga cho'ziladi"],
+  ["Sifatlar va taqqoslash","Ikki narsani solishtiraman"],
+  ["Vaqt: ago, last, since, for","Voqeani vaqtga bog'layman"],
+  ["Present Perfect — tanishuv","I have done — tajriba haqida"],
+  ["Present Perfect va Past Simple","Qaysi biri qachonligini bilaman"],
+  ["Past Continuous — hikoya foni","I was working when..."],
+  ["Hikoya: first, then, finally","1 daqiqalik hikoya tuzaman"],
+  ["Fikr: I think, in my opinion","Fikrimni asoslab beraman"],
+  ["should / must / have to","Maslahat va majburiyat"],
+  ["Phrasal verbs — kundalik to'plam","get up, look for, find out..."],
+  ["Savol berish san'ati","Suhbatni o'lmasdan ushlab turaman"],
+  ["Kelishish / kelishmaslik","Actually, I'm not sure about that"],
+  ["some / any / much / many","Miqdorni tabiiy aytaman"],
+  ["6-oy o'lchovi — B1 tekshiruvi","Eski yozuv bilan taqqoslash"],
+  // --- Kengayish (27-52) ---
+  ["Shartli gap 0 va 1","If I have time, I will..."],
+  ["Shartli gap 2","If I were you, I would..."],
+  ["Passive — Present va Past","It was deployed yesterday"],
+  ["Reported speech — asos","He said that he was busy"],
+  ["Ish tili: standup gapirish","Kechagi/bugungi ishimni aytaman"],
+  ["Ish tili: code review izohi","Muloyim tanqid qila olaman"],
+  ["Ish tili: muammoni tushuntirish","Bug'ni ketma-ket tushuntiraman"],
+  ["Ish tili: yig'ilishda fikr","Gapga kirishni bilaman"],
+  ["Relative clauses: who, which","Gapni bir bo'lakka bog'layman"],
+  ["Gerund va infinitive","I enjoy working / I want to work"],
+  ["Phrasal verbs — ishga oid","set up, roll out, look into"],
+  ["Abstrakt mavzu: ta'lim","Fikrni misol bilan quvvatlayman"],
+  ["Abstrakt mavzu: texnologiya","Ikki tomonni ko'rsataman"],
+  ["Abstrakt mavzu: pul va karyera","Uzun javob tuzaman"],
+  ["Yumshatish: it seems, kind of","Qattiq emas, tabiiy gapiraman"],
+  ["Present Perfect Continuous","I've been learning for a year"],
+  ["Past Perfect","Voqeadan oldingi voqeani aytaman"],
+  ["Shartli 3 va I wish","Afsus va o'tmish farazi"],
+  ["Raqam va statistika haqida","Grafikni og'zaki tasvirlayman"],
+  ["Munozara: dalil tuzilmasi","Da'vo → sabab → misol"],
+  ["Intervyu: Tell me about a challenge","STAR tuzilmasi bilan"],
+  ["Intervyu: texnik tushuntirish","Arxitekturani sodda aytaman"],
+  ["Qo'ng'iroq inglizchasi","Sorry, could you repeat that?"],
+  ["Yozgan hikoyani qayta so'zlash","Yozuvsiz, xotiradan"],
+  ["Phrasal verbs — 3-to'plam","Suhbatda o'zi chiqadi"],
+  ["12-oy o'lchovi — B1+ tekshiruvi","Yillik taqqoslash"],
+  // --- Nozik farqlar (53-78) ---
+  ["Ohang va jumla ritmi","Urg'uni to'g'ri joyga qo'yaman"],
+  ["Bog'langan nutq","Wanna, gonna — tabiiy oqim"],
+  ["Idioma — 1-to'plam","5 ta idioma suhbatda"],
+  ["Register: rasmiy va norasmiy","Kimga qanday gapirishni bilaman"],
+  ["Ehtimollik: probably, unlikely","Aniqlik darajasini beraman"],
+  ["Murakkab gap tuzilmalari","Uzun gapda adashmayman"],
+  ["Urg'u berish va inversiya","Not only... but also"],
+  ["Idioma — 2-to'plam","Ish muhitidagi iboralar"],
+  ["Prezentatsiya qilish","5 daqiqalik taqdimot"],
+  ["Muzokara olib borish","Shartni muhokama qilaman"],
+  ["Small talk","Bo'sh vaqtni suhbat bilan to'ldiraman"],
+  ["Madaniy kontekst, xushmuomalalik","Qo'pol eshitilmayman"],
+  ["Tanqidiy fikr bildirish","Rozimasligimni chiroyli aytaman"],
+  ["2 daqiqalik javob tuzilmasi","To'xtamasdan 2 daqiqa"],
+  ["Aniq fe'l tanlash","said o'rniga aniqrog'i"],
+  ["Collocations","make/do/take — tabiiy juftlik"],
+  ["Hikoya: kulminatsiya bilan","Odamni qiziqtirib gapiraman"],
+  ["Qarshi tomonni tushunish","Steelman qilib javob beraman"],
+  ["Texnik arxitekturani tushuntirish","Doskasiz, faqat so'z bilan"],
+  ["Mentorlik: boshqaga o'rgatish","Tushuntirish — eng qattiq test"],
+  ["Idioma — 3-to'plam","Suhbatdan ilib olganlarim"],
+  ["Spontan javob","Tayyorgarliksiz mavzu, 90 soniya"],
+  ["O'z xatolarimni eshitish","Yozuvni o'zim tahlil qilaman"],
+  ["Tezlik va pauza","Pauzani qo'rqmasdan ishlataman"],
+  ["Yakuniy sayqal","Eng ko'p takrorlangan 10 xato"],
+  ["18-oy o'lchovi — B2 tekshiruvi","Asosiy maqsad nuqtasi"]
+];
+
+var TOPICS = [
+  "My morning routine, minute by minute",
+  "The last bug I fixed and how I found it",
+  "My family and who I am closest to",
+  "A normal working day at my job",
+  "The city I live in — what I like and dislike",
+  "Why I became a developer",
+  "My first day at work",
+  "What I did last weekend",
+  "The food I eat every day",
+  "A person who changed how I think",
+  "My phone — what is on the home screen and why",
+  "A project I am proud of",
+  "How I learn something new",
+  "The last thing that made me angry",
+  "My plans for the next six months",
+  "A place I want to visit and why",
+  "What I do when I cannot sleep",
+  "The best money I ever spent",
+  "A habit I want to stop",
+  "My favourite time of the day",
+  "A film or series I watched recently",
+  "How my job would look in ten years",
+  "Something I believe that most people do not",
+  "A mistake that taught me something",
+  "What makes a good teammate",
+  "How I explain my job to my grandmother",
+  "The hardest thing about learning English",
+  "A day that did not go as planned",
+  "What I would do with one free month",
+  "The tool I could not work without",
+  "Working from home or from an office",
+  "A conversation I remember well",
+  "What I was like ten years ago",
+  "How I choose what to work on first",
+  "The last book or article that stayed with me",
+  "A tradition in my family",
+  "Something small that makes my day better",
+  "How technology changed my city",
+  "A time I had to say no",
+  "What I do when I get stuck on a problem",
+  "The kind of manager I would want to be",
+  "Why some people give up learning a language",
+  "A risk I took",
+  "What success means to me now",
+  "How I would redesign my working day",
+  "The last time I helped someone",
+  "A skill I want in five years",
+  "What I would tell myself one year ago",
+  "The difference between being busy and being useful",
+  "A decision I am still not sure about",
+  "How I keep my energy through the day",
+  "Something I changed my mind about",
+  "The best team I ever worked in",
+  "What I notice first about a new person",
+  "How I would spend my last day in this city",
+  "A problem in my industry nobody talks about",
+  "What I do on a rainy Sunday",
+  "A promise I made to myself",
+  "The moment I felt like a real developer",
+  "What I want people to remember about me"
+];
+
+var DAYS_UZ = ["Yakshanba","Dushanba","Seshanba","Chorshanba","Payshanba","Juma","Shanba"];
+
+// Har hafta kunining o'z formati bor — bir xillik eng katta dushman
+var SHAPES = {
+  1:{name:"Shadowing + monolog", partner:"Sherik savol beradi, siz javob berasiz — 80/20",
+     solo:["Shadowing 15 daq — bir xil 60 soniyalik audio, ovoz chiqarib ortidan","Yangi grammatika nuqtasini 10 ta o'z gapingizda ishlating","Monolog 2 daqiqa — diktofonga, 3 marta"]},
+  2:{name:"Rol o'ynash", partner:"Rol: siz mijoz / u xodim. Keyin almashinasiz — 20 daqiqa",
+     solo:["Shadowing 10 daq","Bugungi mavzuga 10 ta savol yozing (inglizcha)","Monolog 2 daqiqa — 3 marta"]},
+  3:{name:"Hikoya kuni", partner:"Yozgan hikoyangizni QOG'OZGA QARAMASDAN aytib bering",
+     solo:["Shadowing 10 daq","Hikoya yozing — 120-150 so'z, oddiy zamonlarda","Yozganingizni ovoz chiqarib 3 marta o'qing, keyin yopib aytib bering"]},
+  4:{name:"Fikr va munozara", partner:"Sherik qarshi tomonni himoya qiladi — siz o'z fikringizni asoslang",
+     solo:["Shadowing 10 daq","Mavzuga 3 ta dalil + 3 ta misol tayyorlang","Monolog 2 daqiqa: fikr → sabab → misol → xulosa"]},
+  5:{name:"Qayta so'zlash", partner:"Ko'rgan video/o'qigan maqolangizni 3 daqiqada so'zlab bering",
+     solo:["Shadowing 10 daq","5 daqiqalik inglizcha video ko'ring (subtitrsiz ikkinchi marta)","Ko'rganingizni diktofonga so'zlab bering — 3 marta"]},
+  6:{name:"Erkin suhbat + hafta yakuni", partner:"45 daqiqa faqat inglizcha erkin suhbat — mavzu yo'q",
+     solo:["Hafta davomidagi xatolarni o'qing (Xatolar bo'limi)","Har xatoni to'g'ri shaklda 3 martadan ovoz chiqarib ayting","Hafta so'zlarini gap ichida takrorlang"]},
+  0:{name:"Dam olish", partner:"Bugun dam. Ertaga davom.", solo:[]}
+};
+
+/* ============================================================
+   2. HOLAT (state) — data/state.json faylida saqlanadi
+   ============================================================ */
+
+var LS = "ovoz-chiqarib-v1";
+var state = null, api = null, saveTimer = null, saving = false, readOnly = false;
+
+function blank(){
+  return {v:1, startDate:null, days:{}, words:[], errors:[], measures:[], updatedAt:0};
+}
+function normalize(s){
+  var b = blank();
+  if(!s || typeof s!=="object") return b;
+  b.startDate = typeof s.startDate==="string" ? s.startDate : null;
+  b.days = (s.days && typeof s.days==="object") ? s.days : {};
+  b.words = Array.isArray(s.words) ? s.words : [];
+  b.errors = Array.isArray(s.errors) ? s.errors : [];
+  b.measures = Array.isArray(s.measures) ? s.measures : [];
+  b.updatedAt = typeof s.updatedAt==="number" ? s.updatedAt : 0;
+  return b;
+}
+function lsGet(){ try{ return JSON.parse(localStorage.getItem(LS)); }catch(e){ return null; } }
+function lsSet(s){ try{ localStorage.setItem(LS, JSON.stringify(s)); }catch(e){} }
+
+function save(){
+  state.updatedAt = Date.now();
+  lsSet(state);
+  setSaveNote("saqlanmoqda...");
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(pushRemote, 1200);
+}
+function pushRemote(){
+  if(!api || readOnly || saving){ if(!api) setSaveNote(offlineNote()); return; }
+  saving = true;
+  api.publish({"data/state.json": JSON.stringify(state)}).then(function(){
+    saving = false; setSaveNote("saqlandi · " + timeNow());
+  }).catch(function(err){
+    saving = false;
+    var c = err && err.code;
+    if(c==="conflict"){ setSaveNote("boshqa oynada o'zgardi — sahifani yangilang"); return; }
+    if(c==="not_writer"||c==="not_granted"||c==="not_declared"||c==="capability_disabled"||c==="capability_removed"){
+      readOnly = true; setSaveNote(offlineNote()); return;
+    }
+    setSaveNote("saqlanmadi — brauzerda turibdi");
+  });
+}
+function offlineNote(){ return "faqat shu brauzerda saqlandi"; }
+function timeNow(){ var d=new Date(); return pad(d.getHours())+":"+pad(d.getMinutes()); }
+function setSaveNote(t){ document.querySelectorAll(".save-state").forEach(function(el){ el.textContent = t; }); }
+
+/* ============================================================
+   3. Sana va hisob-kitob
+   ============================================================ */
+
+function pad(n){ return n<10 ? "0"+n : ""+n; }
+function key(d){ return d.getFullYear()+"-"+pad(d.getMonth()+1)+"-"+pad(d.getDate()); }
+function parseKey(k){ var p=k.split("-"); return new Date(+p[0], +p[1]-1, +p[2]); }
+function todayKey(){ return key(new Date()); }
+function dayDiff(a,b){ return Math.round((parseKey(b)-parseKey(a))/86400000); }
+
+function dayNumber(k){
+  if(!state.startDate) return 1;
+  return dayDiff(state.startDate, k) + 1;
+}
+function weekIndex(k){ // 0-based, dasturdan
+  var n = dayNumber(k);
+  var i = Math.floor((n-1)/7);
+  if(i < 0) i = 0;
+  if(i >= WEEKS.length) i = WEEKS.length - 6 + (i % 6); // tugagach — yuqori haftalar aylanadi
+  return i;
+}
+function phaseOf(wi){
+  var acc = 0;
+  for(var i=0;i<PHASES.length;i++){ acc += PHASES[i].weeks; if(wi < acc) return {i:i, startWeek:acc-PHASES[i].weeks}; }
+  return {i:PHASES.length-1, startWeek:acc-PHASES[PHASES.length-1].weeks};
+}
+function topicFor(k){
+  var n = dayNumber(k);
+  return TOPICS[((n-1) % TOPICS.length + TOPICS.length) % TOPICS.length];
+}
+function dayRec(k){
+  if(!state.days[k]) state.days[k] = {done:false, runs:0, story:"", tasks:{}};
+  var r = state.days[k];
+  if(!r.tasks) r.tasks = {};
+  if(typeof r.runs!=="number") r.runs = 0;
+  if(typeof r.story!=="string") r.story = "";
+  return r;
+}
+function doneDays(){
+  var out=[]; for(var k in state.days){ if(state.days[k] && state.days[k].done) out.push(k); }
+  return out.sort();
+}
+function streak(){
+  var d = new Date(), n = 0, guard = 0;
+  // bugun hali qilinmagan bo'lsa, kechadan hisoblaymiz
+  if(!(state.days[key(d)] && state.days[key(d)].done)) d.setDate(d.getDate()-1);
+  while(guard++ < 2000){
+    var k = key(d);
+    if(state.days[k] && state.days[k].done){ n++; }
+    else if(d.getDay()===0){ /* yakshanba — dam, uzilish emas */ }
+    else break;
+    d.setDate(d.getDate()-1);
+  }
+  return n;
+}
+function totalHours(){
+  // kunlik yuk: yakka 45 daq + sherik 60 daq = 1.75 soat
+  return Math.round(doneDays().length * 1.75);
+}
+
+/* ============================================================
+   4. Render
+   ============================================================ */
+
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]; }); }
+function el(id){ return document.getElementById(id); }
+
+function render(){
+  if(!state.startDate){ renderSetup(); return; }
+  renderRail();
+  renderToday();
+  renderStory();
+  renderWords();
+  renderErrors();
+  renderGrowth();
+  renderPlan();
+  el("foot").textContent = "Ikki kun ketma-ket tashlamayman. Bir kun — mayli. Ikki kun — hech qachon.";
+}
+
+function renderSetup(){
+  el("rail").innerHTML = "";
+  el("rail").className = "card setup";
+  el("rail").innerHTML =
+    '<span class="eyebrow">Boshlash</span>'+
+    '<h2 style="font-size:20px">Qaysi kundan boshladingiz?</h2>'+
+    '<p style="margin:0;color:var(--muted);font-size:14px">Bu sana butun dasturning nuqtasi — kun raqami, hafta mavzusi va o\'sish shundan hisoblanadi. Bugunni tanlasangiz ham bo\'ladi.</p>'+
+    '<input type="date" id="startInput" value="'+todayKey()+'">'+
+    '<button class="btn" id="startBtn" style="align-self:flex-start">Dasturni boshlash</button>';
+  document.querySelectorAll(".tabs, .panel, .foot").forEach(function(n){ n.style.display="none"; });
+  el("startBtn").onclick = function(){
+    var v = el("startInput").value;
+    if(!v) return;
+    state.startDate = v;
+    save();
+    el("rail").className = "card rail";
+    document.querySelectorAll(".tabs, .panel, .foot").forEach(function(n){ n.style.display=""; });
+    document.querySelectorAll(".panel").forEach(function(n,i){ n.hidden = i!==0; });
+    render();
+  };
+}
+
+function renderRail(){
+  var k = todayKey(), wi = weekIndex(k), ph = phaseOf(wi), P = PHASES[ph.i];
+  var inPhase = wi - ph.startWeek + 1;
+  var segs = "", labs = "";
+  var acc = 0;
+  for(var i=0;i<PHASES.length;i++){
+    var w = 0;
+    if(wi > acc + PHASES[i].weeks - 1) w = 100;
+    else if(wi >= acc) w = Math.round(((wi-acc)/PHASES[i].weeks)*100);
+    segs += '<div class="seg"><span style="width:'+w+'%"></span></div>';
+    labs += '<div class="'+(i===ph.i?"now":"")+'">'+esc(PHASES[i].name)+'</div>';
+    acc += PHASES[i].weeks;
+  }
+  var st = streak();
+  el("rail").innerHTML =
+    '<div class="rail-head">'+
+      '<div><span class="eyebrow">'+esc(P.level)+' · '+esc(P.name)+'</span>'+
+      '<div><strong>'+esc(P.goal)+'</strong></div></div>'+
+      '<span class="mono" style="font-size:12.5px;color:var(--muted)">Hafta '+(wi+1)+' / '+WEEKS.length+' · bosqichda '+inPhase+'-hafta</span>'+
+    '</div>'+
+    '<div class="rail-track">'+segs+'</div>'+
+    '<div class="rail-labels">'+labs+'</div>'+
+    '<div class="stats">'+
+      '<div class="stat"><b>'+st+'</b><small>Kun ketma-ket</small></div>'+
+      '<div class="stat"><b>'+doneDays().length+'</b><small>Bajarilgan kun</small></div>'+
+      '<div class="stat"><b>'+totalHours()+'</b><small>Soat yig\'ildi</small></div>'+
+      '<div class="stat"><b>'+state.words.length+'</b><small>So\'z gap ichida</small></div>'+
+      '<div class="stat"><b>'+state.errors.length+'</b><small>Yozilgan xato</small></div>'+
+    '</div>';
+}
+
+function renderToday(){
+  var k = todayKey(), d = new Date(), wd = d.getDay();
+  var wi = weekIndex(k), W = WEEKS[wi], shape = SHAPES[wd], rec = dayRec(k);
+  var rest = wd===0;
+  var topic = topicFor(k);
+
+  var solo = shape.solo.map(function(t,i){
+    var id = "t"+i, on = !!rec.tasks[id];
+    return '<div class="task"><input type="checkbox" id="'+id+'" data-task="'+id+'"'+(on?" checked":"")+'>'+
+           '<label for="'+id+'">'+esc(t)+'</label></div>';
+  }).join("");
+
+  var runs = "";
+  for(var i=1;i<=3;i++) runs += '<div class="run'+(rec.runs>=i?" on":"")+'">'+i+'</div>';
+
+  var html =
+  '<section class="card today">'+
+    '<div class="today-head">'+
+      '<div class="daynum"><b>'+dayNumber(k)+'</b><span>kun<br>'+esc(DAYS_UZ[wd])+'</span></div>'+
+      '<div class="focus">'+
+        '<span class="chip'+(rest?" rest":"")+'">'+esc(rest?"Dam olish":shape.name)+'</span>'+
+        '<h2 style="margin-top:8px">'+esc(W[0])+'</h2>'+
+        '<p>Maqsad: '+esc(W[1])+'</p>'+
+      '</div>'+
+    '</div>';
+
+  if(rest){
+    html += '<div class="sec"><p style="margin:0;color:var(--ink-2);font-size:15px;max-width:60ch">Bugun dam. Xohlasangiz — o\'tgan haftaning bitta yozuvini eshiting. Boshqa hech narsa. Dam olish ham dasturning bir qismi.</p></div>';
+  } else {
+    html +=
+    '<div class="speak">'+
+      '<div class="speak-l">'+
+        '<span class="eyebrow">Bugungi monolog · 2 daqiqa · diktofonga</span>'+
+        '<div class="prompt">'+esc(topic)+'</div>'+
+        '<p style="font-size:13px;color:var(--muted)">To\'xtasangiz — to\'xtamang. So\'z topolmasangiz aylanib o\'ting: <span class="en">the thing you put food in…</span></p>'+
+      '</div>'+
+      '<div class="timer-box">'+
+        '<div class="runs">'+runs+'<div class="runs-note">3 marta: 1-si yomon, 2-si yaxshi, 3-si ravon</div></div>'+
+        '<div class="clock" id="clock">02:00</div>'+
+        '<button class="rec-btn" id="recBtn"><span class="dot"></span><span id="recLbl">Boshlash</span></button>'+
+      '</div>'+
+    '</div>'+
+
+    '<div class="blocks">'+
+      '<div class="block">'+
+        '<h3>Yakka <span class="time">06:30–07:15</span></h3>'+ solo +
+      '</div>'+
+      '<div class="block">'+
+        '<h3>Sherik bilan <span class="time">20:00–21:00</span></h3>'+
+        '<p style="margin:0;font-size:14px;color:var(--ink-2)">'+esc(shape.partner)+'</p>'+
+        '<div class="task"><input type="checkbox" id="tp" data-task="tp"'+(rec.tasks.tp?" checked":"")+'><label for="tp">English hour bajarildi — 80% men gapirdim</label></div>'+
+        '<div class="task"><input type="checkbox" id="tx" data-task="tx"'+(rec.tasks.tx?" checked":"")+'><label for="tx">Xatolar yozib olindi (to\'xtatib tuzatilmadi)</label></div>'+
+      '</div>'+
+      '<div class="block">'+
+        '<h3>Bugungi qo\'lga kiritilgan</h3>'+
+        '<p style="margin:0;font-size:13px;color:var(--muted)">Monolog paytida topolmagan so\'z — eng qimmatlisi. Gap ichida, o\'zingiz haqingizda yozing.</p>'+
+        '<button class="ghost" data-go="words" style="align-self:flex-start">So\'z qo\'shish</button>'+
+        '<button class="ghost" data-go="errors" style="align-self:flex-start">Xato qo\'shish</button>'+
+      '</div>'+
+    '</div>'+
+
+    '<div class="finish">'+
+      '<button class="btn'+(rec.done?" done":"")+'" id="doneBtn">'+(rec.done?"✓ Bugun bajarildi":"Kunni yakunlash")+'</button>'+
+      '<span class="save-state"></span>'+
+    '</div>';
+  }
+  html += '</section>';
+  el("p-today").innerHTML = html;
+
+  el("p-today").querySelectorAll("[data-task]").forEach(function(cb){
+    cb.onchange = function(){ dayRec(todayKey()).tasks[cb.dataset.task] = cb.checked; save(); };
+  });
+  el("p-today").querySelectorAll("[data-go]").forEach(function(b){
+    b.onclick = function(){ selectTab(b.dataset.go); };
+  });
+  var db = el("doneBtn");
+  if(db) db.onclick = function(){
+    var r = dayRec(todayKey()); r.done = !r.done; save(); renderRail(); renderToday(); renderGrowth();
+  };
+  if(!rest) wireTimer();
+  setSaveNote(api ? "" : offlineNote());
+}
+
+/* --- 2 daqiqalik taymer + 3 marta qoidasi --- */
+var tick=null, left=120;
+function fmt(s){ return pad(Math.floor(s/60))+":"+pad(s%60); }
+function wireTimer(){
+  var btn = el("recBtn"), lbl = el("recLbl"), clk = el("clock");
+  left = 120; clk.textContent = fmt(left);
+  clearInterval(tick); tick=null;
+  btn.onclick = function(){
+    if(tick){
+      clearInterval(tick); tick=null;
+      btn.classList.remove("running"); clk.classList.remove("live");
+      lbl.textContent = "Boshlash"; left = 120; clk.textContent = fmt(left);
+      return;
+    }
+    btn.classList.add("running"); clk.classList.add("live"); lbl.textContent = "To'xtatish";
+    tick = setInterval(function(){
+      left--;
+      clk.textContent = fmt(Math.max(left,0));
+      if(left<=0){
+        clearInterval(tick); tick=null;
+        btn.classList.remove("running"); clk.classList.remove("live"); lbl.textContent="Boshlash";
+        var r = dayRec(todayKey());
+        if(r.runs < 3) r.runs++;
+        save(); renderToday();
+      }
+    }, 1000);
+  };
+}
+
+/* --- Hikoya --- */
+function renderStory(){
+  var k = todayKey(), rec = dayRec(k);
+  var arc = Object.keys(state.days).filter(function(d){ return (state.days[d].story||"").trim() && d!==k; }).sort().reverse();
+  var items = arc.map(function(d){
+    var s = state.days[d].story;
+    return '<li><div class="arc-head"><b>'+d+' · '+dayNumber(d)+'-kun</b>'+
+      '<span class="mono" style="font-size:11.5px;color:var(--muted)">'+wordCount(s)+' so\'z</span></div>'+
+      '<p>'+esc(s)+'</p></li>';
+  }).join("");
+
+  el("p-story").innerHTML =
+  '<section class="card sec">'+
+    '<div class="sec-head"><div>'+
+      '<h2>Bugungi hikoya</h2>'+
+      '<p>Inglizcha yozing — 120–150 so\'z, faqat bilgan zamonlaringizda. Yozgach: ovoz chiqarib 3 marta o\'qing, keyin matnni yoping va xotiradan aytib bering. Yozish — gapirishga tayyorgarlik, maqsad emas.</p>'+
+    '</div></div>'+
+    '<textarea id="storyBox" rows="9" placeholder="Yesterday I worked on a bug in our payment service. It took me three hours..."></textarea>'+
+    '<div class="story-meta"><span class="wc" id="wc"></span><span class="save-state"></span></div>'+
+  '</section>'+
+  '<section class="card sec">'+
+    '<div class="sec-head"><div><h2>Arxiv</h2><p>Hammasi saqlangan. Uch oydan keyin eskisini o\'qib ko\'ring — o\'sish shu yerda ko\'rinadi.</p></div>'+
+    '<span class="mono" style="font-size:12.5px;color:var(--muted)">'+arc.length+' ta hikoya</span></div>'+
+    (items ? '<ul class="list archive">'+items+'</ul>' : '<div class="empty">Hali arxiv bo\'sh. Birinchi hikoyangiz ertaga shu yerda bo\'ladi.</div>')+
+  '</section>';
+
+  var box = el("storyBox");
+  box.value = rec.story;
+  updateWC();
+  box.oninput = function(){ dayRec(todayKey()).story = box.value; updateWC(); save(); };
+  function updateWC(){ el("wc").textContent = wordCount(box.value)+" so'z"; }
+}
+function wordCount(s){ s=(s||"").trim(); return s ? s.split(/\s+/).length : 0; }
+
+/* --- So'zlar --- */
+function renderWords(){
+  var items = state.words.slice().reverse().map(function(w,i){
+    var idx = state.words.length-1-i;
+    return '<li><span class="date">'+esc(w.date)+'</span><div class="body">'+
+      '<div class="en-line">'+esc(w.en)+'</div>'+
+      (w.uz ? '<div class="uz-line">'+esc(w.uz)+'</div>' : '')+
+      '</div><button class="del" data-del="'+idx+'" title="O\'chirish">×</button></li>';
+  }).join("");
+
+  el("p-words").innerHTML =
+  '<section class="card sec">'+
+    '<div class="sec-head"><div><h2>So\'zlar — gap ichida</h2>'+
+    '<p>Yakka so\'z yodlanmaydi. Gap sizning hayotingizdan bo\'lsin. Kuniga 5–7 tadan oshirmang.</p></div></div>'+
+    '<div class="row2">'+
+      '<input id="wEn" placeholder="I decided to change my job last year.">'+
+      '<input id="wUz" placeholder="decided — qaror qildim">'+
+    '</div>'+
+    '<div style="display:flex;gap:12px;align-items:center"><button class="btn" id="wAdd">Qo\'shish</button><span class="save-state"></span></div>'+
+    (items ? '<ul class="list">'+items+'</ul>' : '<div class="empty">Bugungi monologda topolmagan birinchi so\'zingizni kiriting.</div>')+
+  '</section>';
+
+  el("wAdd").onclick = function(){
+    var en = el("wEn").value.trim(); if(!en) return;
+    state.words.push({en:en, uz:el("wUz").value.trim(), date:todayKey()});
+    save(); renderWords(); renderRail(); el("wEn").focus();
+  };
+  el("wEn").onkeydown = function(e){ if(e.key==="Enter") el("wAdd").click(); };
+  el("wUz").onkeydown = function(e){ if(e.key==="Enter") el("wAdd").click(); };
+  bindDel("p-words", state.words, renderWords);
+}
+
+/* --- Xatolar --- */
+function renderErrors(){
+  var counts = {};
+  state.errors.forEach(function(e){ var t=(e.tag||"").trim(); if(t) counts[t]=(counts[t]||0)+1; });
+  var top = Object.keys(counts).sort(function(a,b){ return counts[b]-counts[a]; }).slice(0,6)
+    .map(function(t){ return '<span class="chip">'+esc(t)+' ×'+counts[t]+'</span>'; }).join(" ");
+
+  var items = state.errors.slice().reverse().map(function(e,i){
+    var idx = state.errors.length-1-i;
+    return '<li><span class="date">'+esc(e.date)+'</span><div class="body">'+
+      '<div class="en-line"><span class="wrong">'+esc(e.wrong)+'</span> → <span class="right">'+esc(e.right)+'</span></div>'+
+      (e.tag ? '<div class="uz-line">'+esc(e.tag)+'</div>' : '')+
+      '</div><button class="del" data-del="'+idx+'">×</button></li>';
+  }).join("");
+
+  el("p-errors").innerHTML =
+  '<section class="card sec">'+
+    '<div class="sec-head"><div><h2>Xatolar daftari</h2>'+
+    '<p>Gapirayotganda to\'xtatilmaydi — xatolar yig\'iladi va sessiya oxirida shu yerga yoziladi. Shanba kuni hammasini ovoz chiqarib to\'g\'rilaysiz.</p></div></div>'+
+    (top ? '<div style="display:flex;gap:6px;flex-wrap:wrap">'+top+'</div>' : '')+
+    '<div class="row2">'+
+      '<input id="eW" placeholder="I go to work yesterday">'+
+      '<input id="eR" placeholder="I went to work yesterday">'+
+    '</div>'+
+    '<div class="row2">'+
+      '<input id="eT" placeholder="Belgi: Past Simple">'+
+      '<div style="display:flex;gap:12px;align-items:center"><button class="btn" id="eAdd">Qo\'shish</button><span class="save-state"></span></div>'+
+    '</div>'+
+    (items ? '<ul class="list">'+items+'</ul>' : '<div class="empty">Xato yo\'q emas — hali yozilmagan. Bugungi sessiyadan keyin to\'ldiring.</div>')+
+  '</section>';
+
+  el("eAdd").onclick = function(){
+    var w = el("eW").value.trim(), r = el("eR").value.trim();
+    if(!w || !r) return;
+    state.errors.push({wrong:w, right:r, tag:el("eT").value.trim(), date:todayKey()});
+    save(); renderErrors(); renderRail(); el("eW").focus();
+  };
+  ["eW","eR","eT"].forEach(function(id){ el(id).onkeydown=function(e){ if(e.key==="Enter") el("eAdd").click(); }; });
+  bindDel("p-errors", state.errors, renderErrors);
+}
+
+function bindDel(panelId, arr, re){
+  el(panelId).querySelectorAll("[data-del]").forEach(function(b){
+    b.onclick = function(){ arr.splice(+b.dataset.del,1); save(); re(); renderRail(); };
+  });
+}
+
+/* --- O'sish --- */
+function renderGrowth(){
+  var done = doneDays(), k = todayKey();
+  var rows = state.measures.slice().sort().reverse().map(function(m,i){
+    var idx = state.measures.length-1-i;
+    return '<tr><td class="n">'+esc(m.date)+'</td><td class="n">'+esc(m.stops)+'</td><td class="n">'+esc(m.uz)+'</td>'+
+      '<td class="n">'+esc(m.missing)+'</td><td>'+esc(m.level)+'</td>'+
+      '<td style="text-align:right"><button class="del" data-del="'+idx+'">×</button></td></tr>';
+  }).join("");
+
+  // oxirgi 12 hafta setkasi
+  var grid = "", start = new Date(); start.setDate(start.getDate()-83);
+  for(var i=0;i<84;i++){
+    var d = new Date(start); d.setDate(start.getDate()+i);
+    var kk = key(d), on = state.days[kk] && state.days[kk].done;
+    var cls = on ? "sq on" : (d.getDay()===0 ? "sq rest" : "sq");
+    grid += '<div class="'+cls+'" title="'+kk+'"></div>';
+  }
+
+  var wi = weekIndex(k), ph = phaseOf(wi);
+  var monthsLeft = Math.max(0, Math.ceil((WEEKS.length - wi)/4.33));
+
+  el("p-growth").innerHTML =
+  '<section class="card sec">'+
+    '<div class="sec-head"><div><h2>O\'sish his qilinmaydi — o\'lchanadi</h2>'+
+    '<p>Har oyning 1-kuni bir xil savol: <span class="en">Tell me about yourself and your work.</span> 2 daqiqa, tayyorgarliksiz, diktofonga. Keyin o\'tgan oy yozuvini ham eshiting.</p></div></div>'+
+    '<div class="grid-cards">'+
+      '<div class="card mini"><b>'+totalHours()+'</b><small>Soat</small><em>B2 uchun ~600 kerak</em></div>'+
+      '<div class="card mini"><b>'+done.length+'</b><small>Mashq kuni</small><em>Yakshanba — dam</em></div>'+
+      '<div class="card mini"><b>'+PHASES[ph.i].level+'</b><small>Hozirgi bosqich</small><em>'+esc(PHASES[ph.i].name)+'</em></div>'+
+      '<div class="card mini"><b>'+monthsLeft+'</b><small>Oy qoldi</small><em>Dastur oxirigacha</em></div>'+
+    '</div>'+
+    '<div style="margin-top:6px"><span class="eyebrow">Oxirgi 12 hafta</span><div class="streak-grid" style="margin-top:8px">'+grid+'</div></div>'+
+  '</section>'+
+
+  '<section class="card sec">'+
+    '<div class="sec-head"><div><h2>Oylik o\'lchov</h2><p>Yozuvni eshitib to\'ldiring. Raqamlar pasaysa — o\'sayapsiz.</p></div></div>'+
+    '<div class="row2">'+
+      '<input id="mS" type="number" min="0" placeholder="Necha marta to\'xtadim">'+
+      '<input id="mU" type="number" min="0" placeholder="O\'zbekchaga necha marta o\'tdim">'+
+    '</div>'+
+    '<div class="row2">'+
+      '<input id="mM" type="number" min="0" placeholder="Necha so\'z topolmadim">'+
+      '<input id="mL" placeholder="Daraja hissi: A2 / A2+ / B1">'+
+    '</div>'+
+    '<div style="display:flex;gap:12px;align-items:center"><button class="btn" id="mAdd">O\'lchovni yozish</button><span class="save-state"></span></div>'+
+    (rows ?
+      '<div class="scroll-x"><table><thead><tr><th>Sana</th><th>To\'xtash</th><th>O\'zbekcha</th><th>Topolmadim</th><th>Daraja</th><th></th></tr></thead><tbody>'+rows+'</tbody></table></div>'
+      : '<div class="empty">Birinchi o\'lchovni bugun oling — bu sizning boshlang\'ich nuqtangiz. 3 oydan keyin shu qatorga qaytasiz.</div>')+
+  '</section>'+
+
+  '<section class="card sec">'+
+    '<div class="sec-head"><div><h2>Ogohlantirish</h2></div></div>'+
+    '<p style="margin:0;font-size:14.5px;color:var(--ink-2);max-width:65ch">3-oy atrofida "hech narsa o\'zgarmayapti" degan his keladi. Bu hammada bo\'ladi va ko\'pchilik aynan shu yerda tashlaydi. O\'sish davom etayotgan bo\'ladi — shunchaki ko\'rinmaydi. Shu paytda his qilishga emas, yuqoridagi jadvalga va eski yozuvlaringizga ishoning.</p>'+
+  '</section>';
+
+  el("mAdd").onclick = function(){
+    var s = el("mS").value, u = el("mU").value, m = el("mM").value, l = el("mL").value.trim();
+    if(s==="" && u==="" && m==="" && !l) return;
+    state.measures.push({date:todayKey(), stops:s||"—", uz:u||"—", missing:m||"—", level:l||"—"});
+    save(); renderGrowth();
+  };
+  bindDel("p-growth", state.measures, renderGrowth);
+}
+
+/* --- Reja --- */
+function renderPlan(){
+  var wi = weekIndex(todayKey());
+  var acc = 0, out = "";
+  for(var p=0;p<PHASES.length;p++){
+    var P = PHASES[p], cards = "";
+    for(var w=acc; w<acc+P.weeks; w++){
+      var cls = w===wi ? "wk now" : (w<wi ? "wk past" : "wk");
+      cards += '<div class="'+cls+'"><b>'+(w+1)+'</b><span>'+esc(WEEKS[w][0])+'</span></div>';
+    }
+    out += '<div class="phase"><div class="phase-head"><h3>'+esc(P.name)+' · '+esc(P.level)+'</h3>'+
+           '<span>'+(acc+1)+'–'+(acc+P.weeks)+'-hafta · '+esc(P.goal)+'</span></div>'+
+           '<div class="weeks">'+cards+'</div></div>';
+    acc += P.weeks;
+  }
+
+  var rules = [
+    "Ovoz chiqarib. Ichida o'qish mashq hisoblanmaydi.",
+    "Uch marta qoidasi — har monolog ketma-ket 3 marta. O'sish uchinchisida.",
+    "Har kuni diktofonga yozib olish. Xatoni faqat shunday ko'rasiz.",
+    "Men gapirayotganda to'xtatib tuzatilmaydi. Xatolar oxirida ko'riladi.",
+    "80/20 — sessiyaning 80 foizini men gapiraman.",
+    "O'zbekchaga o'tmayman. So'z topolmasam aylanib o'taman.",
+    "Bugun o'rgangan qoida bugunoq og'izdan chiqadi. Grammatika alohida o'rganilmaydi."
+  ].map(function(r,i){ return '<div class="rule"><b>'+pad(i+1)+'</b><span>'+esc(r)+'</span></div>'; }).join("");
+
+  el("p-plan").innerHTML =
+  '<section class="card sec">'+
+    '<div class="sec-head"><div><h2>Buzilmaydigan qoidalar</h2>'+
+    '<p>Dastur emas, shu ettitasi natija beradi. Sherigingiz ham shularga rioya qilishi kerak.</p></div></div>'+
+    '<div class="rules">'+rules+'</div>'+
+  '</section>'+
+  '<section class="card">'+
+    '<div class="sec" style="padding-bottom:4px"><div class="sec-head"><div><h2>To\'liq yo\'l xaritasi</h2>'+
+    '<p>'+WEEKS.length+' hafta ≈ 18 oy. Tugagach dastur yuqori haftalardan aylanib davom etadi — til tugamaydi.</p></div></div></div>'+
+    out+
+  '</section>';
+}
+
+/* ============================================================
+   5. Tab, tema, eksport, ishga tushirish
+   ============================================================ */
+
+function selectTab(name){
+  document.querySelectorAll(".tab").forEach(function(t){
+    var on = t.dataset.p===name;
+    t.setAttribute("aria-selected", on ? "true" : "false");
+    el("p-"+t.dataset.p).hidden = !on;
+  });
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+el("tabs").addEventListener("click", function(e){
+  var t = e.target.closest(".tab"); if(t) selectTab(t.dataset.p);
+});
+
+el("themeBtn").onclick = function(){
+  var r = document.documentElement, cur = r.getAttribute("data-theme");
+  var dark = cur ? cur==="dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  r.setAttribute("data-theme", dark ? "light" : "dark");
+};
+
+el("exportBtn").onclick = function(){
+  var lines = ["# Ovoz Chiqarib — nusxa ("+todayKey()+")",""];
+  lines.push("Boshlangan: "+state.startDate+" · Bajarilgan kun: "+doneDays().length+" · Soat: "+totalHours(), "");
+  lines.push("## Hikoyalar");
+  Object.keys(state.days).sort().forEach(function(d){
+    var s = (state.days[d].story||"").trim();
+    if(s) lines.push("", "### "+d+" ("+dayNumber(d)+"-kun)", s);
+  });
+  lines.push("", "## So'zlar");
+  state.words.forEach(function(w){ lines.push("- "+w.en+(w.uz?"  — "+w.uz:"")+"  ("+w.date+")"); });
+  lines.push("", "## Xatolar");
+  state.errors.forEach(function(e){ lines.push("- "+e.wrong+" → "+e.right+(e.tag?"  ["+e.tag+"]":"")+"  ("+e.date+")"); });
+  var txt = lines.join("\n");
+  navigator.clipboard.writeText(txt).then(function(){
+    el("exportBtn").textContent = "Nusxa olindi ✓";
+    setTimeout(function(){ el("exportBtn").textContent = "Nusxa olish"; }, 2000);
+  }).catch(function(){
+    var w = window.open("", "_blank");
+    if(w){ w.document.write("<pre>"+esc(txt)+"</pre>"); }
+  });
+};
+
+/* --- yuklash: fayl-baza + brauzer zaxirasi --- */
+function boot(){
+  var local = normalize(lsGet());
+  state = local;
+  render();
+
+  fetch("data/state.json", {cache:"no-store"}).then(function(r){
+    return r.ok ? r.json() : null;
+  }).catch(function(){ return null; }).then(function(remote){
+    if(remote){
+      var R = normalize(remote);
+      if(R.updatedAt >= local.updatedAt){ state = R; lsSet(state); render(); }
+    }
+    return (window.claude && window.claude.use) ? window.claude.use("artifact") : null;
+  }).then(function(ns){
+    api = ns || null;
+    setSaveNote(api ? "" : offlineNote());
+  }).catch(function(){ setSaveNote(offlineNote()); });
+}
+boot();
+
+})();
+</script>
