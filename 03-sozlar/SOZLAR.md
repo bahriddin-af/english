@@ -16,6 +16,20 @@ mening hayotimdan kelib chiqqan, shuning uchun yodda qoladi.
 
 ---
 
+## 4000 Essential English Words 1 — progress
+
+Takrorlash oralig'i: **1 kun → 3 kun → 1 hafta → 2 hafta → 1 oy**.
+Takrordan keyin keyingi sana yangilanadi.
+
+| Unit | Oxirgi natija | Oxirgi sana | Keyingi takror |
+|---|---|---|---|
+| 1 |  |  |  |
+| 2 | 10/10 | 2026-09-16 | 2026-09-22 |
+| 3 | 20/20 | 2026-09-16 | 2026-09-17 |
+| 4 | — | — | yangi |
+
+---
+
 ## Anki kartasi shakli
 
 Old tomonda **o'zbekcha so'z emas**, bo'sh joyli inglizcha gap:

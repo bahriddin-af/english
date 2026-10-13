@@ -40,7 +40,10 @@ Har safar yangi video olsam — foyda yo'q.
 
 ## AI bilan ishlash
 
-Yangi sessiyada `00-KONTEKST.md` faylini beraman, keyin:
+**Claude Code (asosiy usul):** shu papkani ochib, `dars` deb yozaman.
+Claude `CLAUDE.md` orqali kontekst, xatolar va rejani o'zi o'qiydi.
+
+**Boshqa AI (ChatGPT, Claude chat):** `00-KONTEKST.md` faylini beraman, keyin:
 
 ```
 Bugun men [KUN]-kundaman. Mavzu: [MAVZU]

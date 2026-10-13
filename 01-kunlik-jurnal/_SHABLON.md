@@ -1,7 +1,8 @@
-# KUN — 00 · 2026-__-__
+# KUN — YYYY-MM-DD (hafta kuni)
 
-**Grammatika:**
-**Mavzu:**
+**Grammatika:** [mavzu] — [nechanchi kun] (`06-grammatika/REJA.md` dan)
+**So'zlar:** [kitob / Unit]
+**Speaking mavzusi:** [mavzu] (`07-speaking/MAVZULAR.md` dan)
 
 ---
 
@@ -9,7 +10,7 @@
 
 - [ ] Shadowing 15 daq — manba: 
 - [ ] Monolog 20 daq — 3 marta gapirdim
-- [ ] Diktofon yozuvi olindi → `04-yozuvlar/kun-00.m4a`
+- [ ] Diktofon yozuvi olindi → `04-yozuvlar/YYYY-MM-DD.m4a`
 - [ ] Anki 10 daq
 
 ### Topolmagan so'zlar
@@ -28,7 +29,17 @@
 - [ ] 80/20 qoidasi bajarildi (men ko'proq gapirdim)
 - [ ] Oxirgi 10 daqiqa xatolar ustida ishladik
 
-### Bugungi xatolarim
+---
+
+## Natijalar
+
+- Takrorlash: 
+- Grammatika mashqi: __/10
+- So'z testi: __/20
+
+## Bugungi xatolarim
+
+> Yangi va takrorlangan xatolar `02-xatolar/XATOLAR.md` ga ham qo'shiladi.
 
 1. ❌  → ✅ 
 2. ❌  → ✅ 
@@ -42,3 +53,9 @@
 **O'zbekchaga necha marta o'tdim:** 
 **Bugun qiyin bo'lgani:** 
 **Bugun oson bo'lgani:** 
+
+## Ertangi kun
+
+1. 
+2. 
+3. 

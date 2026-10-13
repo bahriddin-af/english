@@ -67,6 +67,9 @@ Bu qoidalarni AI ham, sherigim ham hurmat qilishi kerak:
 | 4 | `going to` / `will` / `can` + gapni uzaytirish (`because`) |
 | 29–30 kun | Xatolarni tuzatish + 1-kun yozuvi bilan taqqoslash |
 
+**Joriy holat:** qaysi mavzu tugagan va qaysi biri hozir o'tilayotgani —
+`06-grammatika/REJA.md` da. Gapirish mavzulari — `07-speaking/MAVZULAR.md` da.
+
 **Kunlik format:** 1 ta grammatika nuqtasi + 1 ta gapirish mavzusi +
 yakka topshiriq (45 daq) + sherik bilan topshiriq (60 daq). Yakshanba — dam.
 
