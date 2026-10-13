@@ -15,9 +15,12 @@ Har kuni sessiyadan keyin shu yerga qo'shaman.
 
 | # | Xato | To'g'ri variant | Necha marta | Holat |
 |---|---|---|---|---|
-| 1 |  |  |  | 🔴 faol |
-| 2 |  |  |  | 🔴 faol |
-| 3 |  |  |  | 🔴 faol |
+| 1 | `yerterday` | `yesterday` | 3 (2026-09-16) | 🔴 faol |
+| 2 | `She wasn't teacher` | `She wasn't **a** teacher` | 2 (09-15, 09-16) | 🔴 faol |
+| 3 | `Were you library?` | `Were you **at the** library?` | 1 (2026-09-16) | 🔴 faol |
+| 4 | `want` / `went` chalkashligi | `I **went** to school` | 1 (2026-09-16) | 🔴 faol |
+| 5 | `discribe` | `describe` | 3 (2026-09-16) | 🔴 faol |
+| 6 | `typecial` | `typical` | 1 (2026-09-16) | 🔴 faol |
 
 ---
 

@@ -51,3 +51,21 @@ bularni birinchi navbatda avtomatlashtiraman:
 
 **Mashq:** har biriga o'z ishim haqida gap tuzaman —
 `Yesterday I deployed the new version and it broke the payment page.`
+
+---
+
+## 4000 Essential English Words 1 — Unit 3 (2026-09-16)
+
+alien · among · chart · cloud · describe · ever · fail · grade · instead ·
+library · photograph · planet · report · several · shape · solve ·
+suddenly · suppose · understand · view
+
+## Unit 1 va Unit 2 (rasmiy ro'yxat)
+
+**Unit 1:** agree · alcohol · arrive · August · boat · breakfast · camera ·
+capital · catch · duck · enjoy · invite · love · month · travel · typical ·
+visit · weather · week · wine
+
+**Unit 2:** adventure · approach · carefully · chemical · create · evil ·
+experiment · kill · laboratory · laugh · loud · nervous · noise · project ·
+scare · secret · shout · smell · terrible · worse
