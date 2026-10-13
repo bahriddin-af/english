@@ -7,29 +7,39 @@ Ingliz tili speaking mashg'ulotlarim shu yerda. Har kuni shu papkani ochaman.
 | Papka / fayl | Nima uchun |
 |---|---|
 | `CLAUDE.md` | Claude uchun ish tartibi. Claude uni avtomatik o'qiydi — qo'lda berish shart emas |
-| `00-KONTEKST.md` | **Men haqimda:** daraja, maqsad, qoidalar. Daraja oshganda yangilanadi |
+| `CONTEXT.md` | **Men haqimda:** daraja, maqsad, qoidalar. Daraja oshganda yangilanadi |
 | `PROGRESS.md` | Oylik o'lchov — o'sishni faqat shu yerda ko'raman |
-| `01-kunlik-jurnal/` | Har kuni bitta fayl: `YYYY-MM-DD.md`. Shablon: `_SHABLON.md` |
-| `02-xatolar/` | `XATOLAR.md` — faol xatolar va arxiv |
-| `03-sozlar/` | `SOZLAR.md` — so'zlar gap ichida + kitob Unit'lari progressi |
-| `04-yozuvlar/` | Diktofon yozuvlari: `YYYY-MM-DD.m4a`, `olcov-YYYY-MM.m4a`. GitHub'ga chiqmaydi |
-| `05-hujjatlar/` | Kitoblar, ilovalar, linklar |
-| `06-grammatika/` | `REJA.md` — grammatika mavzulari va holati (✅ 🔄 ⏳) |
-| `07-speaking/` | `MAVZULAR.md` — gapirish mavzulari, `IT-INGLIZ.md` — ish va intervyu iboralari |
+| `grammar/` | `PLAN.md` — grammatika mavzulari va holati (✅ 🔄 ⏳) |
+| `journal/` | Har kuni bitta fayl: `YYYY-MM-DD.md`. Shablon: `_TEMPLATE.md` |
+| `mistakes/` | `MISTAKES.md` — faol xatolar va arxiv |
+| `recordings/` | Diktofon yozuvlari. GitHub'ga chiqmaydi |
+| `resources/` | `LINKS.md` — kitoblar, ilovalar, linklar |
+| `speaking/` | `TOPICS.md` — gapirish mavzulari, `IT-ENGLISH.md` — ish va intervyu iboralari |
+| `vocabulary/` | `WORDS.md` — so'zlar gap ichida + kitob Unit'lari progressi |
+
+## Nomlash qoidalari
+
+| Nima | Format | Misol |
+|---|---|---|
+| Kunlik jurnal | `journal/YYYY-MM-DD.md` | `journal/2026-10-14.md` |
+| Kunlik yozuv | `recordings/YYYY-MM-DD.m4a` | `recordings/2026-10-14.m4a` |
+| Oylik o'lchov yozuvi | `recordings/olcov-YYYY-MM.m4a` | `recordings/olcov-2026-11.m4a` |
+
+Folder va fayl nomlari inglizcha, ichidagi tushuntirishlar o'zbekcha.
 
 ## Oltin qoida
 
-**Har bir ma'lumot faqat bitta joyda turadi.** Xatolar faqat `XATOLAR.md` da,
-so'zlar faqat `SOZLAR.md` da, grammatika holati faqat `REJA.md` da.
+**Har bir ma'lumot faqat bitta joyda turadi.** Xatolar faqat `MISTAKES.md` da,
+so'zlar faqat `WORDS.md` da, grammatika holati faqat `PLAN.md` da.
 Jurnal kunning hikoyasini yozadi, lekin ro'yxatlarni takrorlamaydi.
 
 ## Kunlik tartib
 
 1. **06:30** — Claude Code'da shu papkani ochib, `dars` deb yozaman
-2. Shadowing 15 daq → monolog 20 daq (diktofonga yozaman → `04-yozuvlar/`)
-3. Topolmagan so'zlar → `03-sozlar/SOZLAR.md`
+2. Shadowing 15 daq → monolog 20 daq (diktofonga yozaman → `recordings/`)
+3. Topolmagan so'zlar → `vocabulary/WORDS.md`
 4. **20:00** — sherik bilan English hour
-5. Sessiyadan keyin xatolar → `02-xatolar/XATOLAR.md`
+5. Sessiyadan keyin xatolar → `mistakes/MISTAKES.md`
 6. Kun yakunida jurnal yoziladi va GitHub'ga push qilinadi
 
 ## Ikki kompyuterda ishlash (ish + uy)

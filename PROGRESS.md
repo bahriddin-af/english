@@ -8,7 +8,7 @@
 1. Diktofonni yoqing
 2. Savol: **`Tell me about yourself and your work.`**
 3. **2 daqiqa** to'xtamasdan gapiring — tayyorgarliksiz
-4. Yozuvni `04-yozuvlar/olcov-YYYY-MM.m4a` deb saqlang
+4. Yozuvni `recordings/olcov-YYYY-MM.m4a` deb saqlang
 5. Eshiting va quyidagi jadvalni to'ldiring
 6. **O'tgan oy yozuvini ham eshiting** — farqni his qilasiz
 

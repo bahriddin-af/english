@@ -41,6 +41,6 @@ lekin u "Qayta ko'rish" ro'yxatiga tushadi va 1 haftadan keyin takrorlanadi.
 
 ## Hozircha erta
 
-Bular B1 darajadan keyin boshlanadi (`00-KONTEKST.md`, 8-bo'lim):
+Bular B1 darajadan keyin boshlanadi (`CONTEXT.md`, 8-bo'lim):
 
 Present Perfect · Passive · Conditionals · Reported Speech

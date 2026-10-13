@@ -7,11 +7,11 @@ Ikki kompyuterda (ish va uy) ishlayman, folder GitHub orqali sinxronlanadi.
 
 1. `git pull` qil — boshqa kompyuterdagi o'zgarishlarni ol. Conflict bo'lsa, menga ayt va birga hal qilamiz.
 2. Shu fayllarni o'qi:
-   - `00-KONTEKST.md` — men kimman, maqsad, qoidalar. **Undagi qoidalarga to'liq rioya qil.**
-   - `01-kunlik-jurnal/` dagi eng oxirgi fayl — ayniqsa "Ertangi kun" bo'limi
-   - `06-grammatika/REJA.md` — 🔄 holatdagi mavzu va "Qayta ko'rish" ro'yxati
-   - `02-xatolar/XATOLAR.md` — faol xatolar
-   - `03-sozlar/SOZLAR.md` — so'zlar va Unit'larning "Keyingi takror" sanalari
+   - `CONTEXT.md` — men kimman, maqsad, qoidalar. **Undagi qoidalarga to'liq rioya qil.**
+   - `journal/` dagi eng oxirgi fayl — ayniqsa "Ertangi kun" bo'limi
+   - `grammar/PLAN.md` — 🔄 holatdagi mavzu va "Qayta ko'rish" ro'yxati
+   - `mistakes/MISTAKES.md` — faol xatolar
+   - `vocabulary/WORDS.md` — so'zlar va Unit'larning "Keyingi takror" sanalari
 3. Oxirgi jurnal sanasi bugundan 3 kundan ko'p oldin bo'lsa: avval qisqa takrorlash qil
    (faol xatolar + oxirgi Unit), keyin davom et. Tanaffus uchun meni ayblama.
 
@@ -22,8 +22,8 @@ Ikki kompyuterda (ish va uy) ishlayman, folder GitHub orqali sinxronlanadi.
 - 80/20: men ko'proq gapiraman, sen qisqa savol berasan
 - Gapirayotganimda to'xtatib tuzatma, xatolarni yig'ib, keyin ko'rsat
 - Kuniga maksimum 5–7 ta yangi so'z
-- Faqat `REJA.md` dagi grammatika; "Hozircha erta" ro'yxatidagilarni o'rgatma
-- To'liq qoidalar — `00-KONTEKST.md`, 4 va 8-bo'limlar
+- Faqat `PLAN.md` dagi grammatika; "Hozircha erta" ro'yxatidagilarni o'rgatma
+- To'liq qoidalar — `CONTEXT.md`, 4 va 8-bo'limlar
 
 ## 3. Sessiya oxirida fayllarni yangilash
 
@@ -31,15 +31,15 @@ Ikki kompyuterda (ish va uy) ishlayman, folder GitHub orqali sinxronlanadi.
 
 | Nima bo'ldi | Qaysi faylga |
 |---|---|
-| Kun hikoyasi, natijalar, ertangi reja | `01-kunlik-jurnal/YYYY-MM-DD.md` — `_SHABLON.md` asosida, "Ertangi kun" bo'limi majburiy |
-| Yangi yoki takrorlangan xato | `02-xatolar/XATOLAR.md` — "Necha marta" ni oshir; 3 sessiya qaytarilmasa arxivga ko'chir |
-| Yangi so'z | `03-sozlar/SOZLAR.md` — faqat **men haqimdagi gap** ichida |
-| Unit takrorlandi | `03-sozlar/SOZLAR.md` progress jadvali — natija va keyingi takror sanasi |
-| Grammatika mavzusi tugadi | `06-grammatika/REJA.md` — holat, ball, sana; 8/10 dan past bo'lsa "Qayta ko'rish" ga |
-| Speaking mavzusi gapirildi | `07-speaking/MAVZULAR.md` — holat va sana |
-| IT iborasi o'rganildi | `07-speaking/IT-INGLIZ.md` |
+| Kun hikoyasi, natijalar, ertangi reja | `journal/YYYY-MM-DD.md` — `_TEMPLATE.md` asosida, "Ertangi kun" bo'limi majburiy |
+| Yangi yoki takrorlangan xato | `mistakes/MISTAKES.md` — "Necha marta" ni oshir; 3 sessiya qaytarilmasa arxivga ko'chir |
+| Yangi so'z | `vocabulary/WORDS.md` — faqat **men haqimdagi gap** ichida |
+| Unit takrorlandi | `vocabulary/WORDS.md` progress jadvali — natija va keyingi takror sanasi |
+| Grammatika mavzusi tugadi | `grammar/PLAN.md` — holat, ball, sana; 8/10 dan past bo'lsa "Qayta ko'rish" ga |
+| Speaking mavzusi gapirildi | `speaking/TOPICS.md` — holat va sana |
+| IT iborasi o'rganildi | `speaking/IT-ENGLISH.md` |
 | Oylik o'lchov testi | `PROGRESS.md` jadvali |
-| Darajam oshdi | `00-KONTEKST.md` — faqat men tasdiqlaganimdan keyin |
+| Darajam oshdi | `CONTEXT.md` — faqat men tasdiqlaganimdan keyin |
 
 Fayllarni yangilagach, menga qisqa ro'yxat ko'rsat: qaysi faylga nima yozildi.
 
@@ -53,9 +53,9 @@ Fayllarni yangilagach, menga qisqa ro'yxat ko'rsat: qaysi faylga nima yozildi.
 ## 5. Buyruqlar
 
 - **dars** — oxirgi jurnaldagi "Ertangi kun" rejasidan davom et
-- **gaplashamiz** — speaking partner rejimi (`MAVZULAR.md` dagi keyingi mavzu bilan)
+- **gaplashamiz** — speaking partner rejimi (`TOPICS.md` dagi keyingi mavzu bilan)
 - **takrorla** — faol xatolar, so'zlar va muddati kelgan Unit'lar
-- **intervyu** — `IT-INGLIZ.md` asosida oddiy inglizcha mock IT intervyu
+- **intervyu** — `IT-ENGLISH.md` asosida oddiy inglizcha mock IT intervyu
 - **tekshir** — men yozgan matnni tekshir
-- **progress** — `PROGRESS.md`, `REJA.md` va jurnallar asosida o'sishimni ko'rsat
+- **progress** — `PROGRESS.md`, `PLAN.md` va jurnallar asosida o'sishimni ko'rsat
 - **push qil** — GitHub'ga yukla

@@ -1,8 +1,8 @@
 # KUN — YYYY-MM-DD (hafta kuni)
 
-**Grammatika:** [mavzu] — [nechanchi kun] (`06-grammatika/REJA.md` dan)
+**Grammatika:** [mavzu] — [nechanchi kun] (`grammar/PLAN.md` dan)
 **So'zlar:** [kitob / Unit]
-**Speaking mavzusi:** [mavzu] (`07-speaking/MAVZULAR.md` dan)
+**Speaking mavzusi:** [mavzu] (`speaking/TOPICS.md` dan)
 
 ---
 
@@ -10,7 +10,7 @@
 
 - [ ] Shadowing 15 daq — manba: 
 - [ ] Monolog 20 daq — 3 marta gapirdim
-- [ ] Diktofon yozuvi olindi → `04-yozuvlar/YYYY-MM-DD.m4a`
+- [ ] Diktofon yozuvi olindi → `recordings/YYYY-MM-DD.m4a`
 - [ ] Anki 10 daq
 
 ### Topolmagan so'zlar
@@ -39,7 +39,7 @@
 
 ## Bugungi xatolarim
 
-> Yangi va takrorlangan xatolar `02-xatolar/XATOLAR.md` ga ham qo'shiladi.
+> Yangi va takrorlangan xatolar `mistakes/MISTAKES.md` ga ham qo'shiladi.
 
 1. ❌  → ✅ 
 2. ❌  → ✅ 
