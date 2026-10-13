@@ -43,14 +43,29 @@ Ikki kompyuterda (ish va uy) ishlayman, folder GitHub orqali sinxronlanadi.
 
 Fayllarni yangilagach, menga qisqa ro'yxat ko'rsat: qaysi faylga nima yozildi.
 
-## 4. GitHub
+## 4. Notion — English Hub
+
+Notion'dagi **English Hub** sahifasi shu folderning ko'zgusi. Sessiya oxirida, fayllar yangilangach, Notion'ni ham yangila (Notion ulanmagan bo'lsa, menga ayt):
+
+| Fayl | Notion |
+|---|---|
+| `journal/YYYY-MM-DD.md` | "Kunlik jurnal" database'iga yangi yozuv (`collection://5d9ba244-3781-49df-96fd-93ede43b20a6`) |
+| `mistakes/MISTAKES.md` | "Xatolar daftari" (`collection://2e68e675-59a8-4013-bc03-db4ac8d36a2c`) |
+| `grammar/PLAN.md` | "Grammatika rejasi" (`collection://394e61e5-4e03-47a3-84d6-c038c90a13d2`) |
+| `speaking/TOPICS.md` | "Speaking mavzulari" (`collection://19856ca1-476c-4d04-9b58-861ee27fc7ed`) |
+| `vocabulary/WORDS.md` Unit jadvali | "4000 Essential Words — Unit'lar" (`collection://8b87b3dd-23fa-4dee-b050-78f46c5b7602`) |
+| Hozirgi holat | English Hub'dagi "📍 Hozir qayerdaman" bo'limi |
+
+English Hub: https://app.notion.com/p/3c9ac6f202d780b1a942c5439a0b9257
+
+## 5. GitHub
 
 - Men `push qil` desam: o'zgarishlarni commit qilib, `origin main` ga push qil
 - Sessiya oxirida push qilinmagan o'zgarish qolsa, eslat
 - Repo **public**: `Bahriddin-Abdusalomov-Resume.html` va boshqa shaxsiy fayllarni commit qilma
 - Audio fayllar (`*.m4a`) `.gitignore` da — ularni hech qachon qo'shma
 
-## 5. Buyruqlar
+## 6. Buyruqlar
 
 - **dars** — oxirgi jurnaldagi "Ertangi kun" rejasidan davom et
 - **gaplashamiz** — speaking partner rejimi (`TOPICS.md` dagi keyingi mavzu bilan)
